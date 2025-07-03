@@ -36,6 +36,8 @@ const config: Config = {
     locales: ["en", "fr", "zh-CN"],
   },
 
+  deploymentBranch: "gh-pages",
+
   presets: [
     [
       "classic",
