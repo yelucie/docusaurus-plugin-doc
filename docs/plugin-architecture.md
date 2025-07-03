@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Core Editor Framework
 
 #### **@lexical/react** - Modern Rich Text Editor Framework

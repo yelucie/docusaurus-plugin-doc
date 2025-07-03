@@ -36,8 +36,6 @@ const config: Config = {
     locales: ["en", "fr", "zh-CN"],
   },
 
-  deploymentBranch: 'gh-pages',
-
   presets: [
     [
       "classic",
@@ -87,8 +85,8 @@ const config: Config = {
           title: "Learn",
           items: [
             {
-              label: "Introduction",
-              to: "/docs/",
+              label: "Installation",
+              to: "/docs/installation",
             },
           ],
         },

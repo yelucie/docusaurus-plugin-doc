@@ -1,7 +1,3 @@
----
-title: WYSIWYG Editor IndexedDB Object Store Architecture
----
-
 # WYSIWYG Editor IndexedDB Architecture
 
 This document outlines the IndexedDB object store architecture used by the WYSIWYG Editor plugin.
