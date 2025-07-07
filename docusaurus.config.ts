@@ -1,6 +1,8 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -36,8 +38,6 @@ const config: Config = {
     locales: ["en", "fr", "zh-CN"],
   },
 
-  deploymentBranch: "gh-pages",
-
   presets: [
     [
       "classic",
@@ -48,6 +48,8 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -71,6 +73,12 @@ const config: Config = {
           sidebarId: "docsSidebar",
           position: "left",
           label: "Docs",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "apiSidebar",
+          position: "left",
+          label: "API",
         },
         { type: "localeDropdown", position: "right" },
         {
@@ -143,6 +151,16 @@ const config: Config = {
     ],
     require.resolve("docusaurus-plugin-image-zoom"),
   ],
+
+   stylesheets: [
+      {
+        href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+        type: "text/css",
+        integrity:
+          "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+        crossorigin: "anonymous",
+      },
+    ],
 };
 
 export default config;

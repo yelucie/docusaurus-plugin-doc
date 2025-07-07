@@ -1,0 +1,163 @@
+# Build a custom transformer
+
+Learn to create a custom transformer that converts `§text§` syntax into yellow-highlighted text in your WYSIWYG editor.
+
+## What You'll Learn
+
+By the end of this tutorial, you'll understand:
+- Which regex patterns to define for markdown transformation
+- How to implement export and replace functions
+- How to register custom transformers in the plugin
+
+## What you'll build
+
+A highlight transformer that converts `§important text§` into visually highlighted content.
+
+![Custom highlight transformer tutorial](../static/img/highlight-tutorial.gif)
+
+*Watch how typing `§text§` automatically creates highlighted content*
+
+## Prerequisites
+- Basic TypeScript and [regex](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_expressions) knowledge
+- Understanding of [Lexical's transformer API](https://lexical.dev/docs/packages/lexical-markdown)
+
+## Step 1: Define regex patterns
+
+Create patterns that match your highlight syntax:
+
+```ts title="src/theme/utils/regExp.ts"
+// Matches all §text§ patterns when importing markdown
+export const HIGHLIGHT_IMPORT_REGEX = /§([^§]+)§/;
+
+// Matches §text§ only at the end while typing
+export const HIGHLIGHT_INPUT_REGEX = /§([^§]+)§$/;
+```
+
+**Why two patterns?**
+- `importRegExp`: Finds all highlights when loading markdown (no `/g` flag needed - Lexical handles iteration)
+- `regExp` with `$` anchor: Triggers only when you finish typing the complete pattern
+
+## Step 2: Implement export function
+
+Define how highlighted text becomes markdown:
+
+```ts title="src/theme/plugins/MarkdownTransformers/myTransformers.ts"
+import { $isTextNode, TextNode } from 'lexical';
+
+function highlightExport(node: TextNode): string | null {
+  if (!$isTextNode(node)) {
+    return null;
+  }
+
+  return node.hasFormat('highlight') ? `§${node.getTextContent()}§` : null;
+}
+```
+
+This function checks if a text node has the 'highlight' format and converts it back to `§text§` markdown syntax.
+
+## Step 3: Implement replace function
+
+Define how markdown becomes highlighted editor content:
+
+```ts title="src/theme/plugins/MarkdownTransformers/myTransformers.ts"
+import { $createTextNode, $getSelection, $isRangeSelection } from 'lexical';
+
+function highlightReplace(textNode, match) {
+  const [, content] = match;
+
+  const highlightedTextNode = $createTextNode(content);
+  highlightedTextNode.setFormat('highlight');
+  textNode.replace(highlightedTextNode);
+
+  // Move cursor after the highlighted text and clear formatting
+  const selection = $getSelection();
+  if ($isRangeSelection(selection)) {
+    selection.insertText('');
+  }
+
+  return highlightedTextNode;
+}
+```
+
+This function creates a text node with highlight formatting and manages cursor positioning.
+
+## Step 4: Create the transformer
+
+Combine all pieces into your transformer:
+
+```ts title="src/theme/plugins/MarkdownTransformers/myTransformers.ts"
+import { $isTextNode, TextNode, $createTextNode, $getSelection, $isRangeSelection } from "lexical";
+import { TextMatchTransformer } from "@lexical/markdown";
+import { HIGHLIGHT_IMPORT_REGEX, HIGHLIGHT_INPUT_REGEX } from '../../utils/regExp';
+
+export const HIGHLIGHT: TextMatchTransformer = {
+  dependencies: [TextNode],
+  export: highlightExport(),
+  importRegExp: HIGHLIGHT_IMPORT_REGEX,
+  regExp: HIGHLIGHT_INPUT_REGEX,
+  replace: highlightReplace(),
+  trigger: '§',
+  type: 'text-match',
+};
+```
+
+## Step 5: Register the transformer
+
+Add your transformer to the plugin:
+
+```ts title="src/theme/plugins/MarkdownTransformers/index.ts"
+import { TRANSFORMERS, Transformer } from "@lexical/markdown";
+import { HIGHLIGHT } from "./myTransformers";
+
+export const MY_TRANSFORMERS: Array<Transformer> = [
+  ...TRANSFORMERS, 
+  HIGHLIGHT
+];
+```
+
+## Complete Code
+
+**Copy and paste this complete file:**
+
+```ts title="src/theme/plugins/MarkdownTransformers/myTransformers.ts"
+import { $isTextNode, TextNode, $createTextNode, $getSelection, $isRangeSelection } from "lexical";
+import { TextMatchTransformer } from "@lexical/markdown";
+
+export const HIGHLIGHT: TextMatchTransformer = {
+  dependencies: [TextNode],
+  export: (node) => {
+    if (!$isTextNode(node)) {
+      return null;
+    }
+    return node.hasFormat('highlight') ? `§${node.getTextContent()}§` : null;
+  },
+  importRegExp: /§([^§]+)§/,
+  regExp: /§([^§]+)§$/,
+  replace: (textNode, match) => {
+    const [, content] = match;
+    const highlightedTextNode = $createTextNode(content);
+    highlightedTextNode.setFormat('highlight');
+    textNode.replace(highlightedTextNode);
+
+    // Move cursor after the highlighted text
+    const selection = $getSelection();
+    if ($isRangeSelection(selection)) {
+      selection.insertText('');
+    }
+
+    return highlightedTextNode;
+  },
+  trigger: '§',
+  type: 'text-match',
+};
+```
+
+## Test it
+
+1. Start your dev server
+2. Type `§some text§` in the editor
+3. Watch it transform into highlighted text
+
+## Done!
+
+🎉 You've created a custom transformer that converts `§text§` to highlighted content and back to markdown.
