@@ -32,7 +32,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Architecture",
+      label: "Core concepts",
       link: {
         type: "generated-index",
       },
@@ -40,6 +40,7 @@ const sidebars: SidebarsConfig = {
       items: [
         "plugin-architecture",
         "markdown-processing",
+        "transformers",
         "content-synchronization",
       ],
     },
