@@ -323,39 +323,39 @@
     "description": "The title of the tag list page"
   },
   "homepage.getStarted": {
-    "message": "Commencer",
+    "message": "Getting Started",
     "description": "The label for the get started button on the homepage"
   },
   "homepage.description": {
-    "message": "Documentation WYSIWYG pour Docusaurus",
+    "message": "Edit your Docusaurus documentation directly in the browser with a powerful WYSIWYG editor",
     "description": "The description for the homepage"
   },
   "homepage.features.click.title": {
-    "message": "Cliquer",
+    "message": "Click",
     "description": "Title for the Click feature"
   },
   "homepage.features.click.description": {
-    "message": "Cliquez sur le bouton Modifier cette page dans votre documentation pour commencer l'édition. Pas besoin de chercher des fichiers markdown ou de naviguer dans des structures de dossiers complexes.",
+    "message": "Click on the Edit this page button in your documentation to start editing. No need to hunt for markdown files or navigate complex folder structures.",
     "description": "Description for the Click feature"
   },
   "homepage.features.edit.title": {
-    "message": "Éditer",
+    "message": "Edit",
     "description": "Title for the Edit feature"
   },
   "homepage.features.edit.description": {
-    "message": "Éditez votre contenu avec une interface WYSIWYG. Voyez vos modifications en temps réel pendant que vous tapez, formatez et stylisez votre documentation.",
+    "message": "Edit your content with a WYSIWYG interface. See your changes in real-time as you type, format, and style your documentation.",
     "description": "Description for the Edit feature"
   },
   "homepage.features.publish.title": {
-    "message": "Publier",
+    "message": "Publish",
     "description": "Title for the Publish feature"
   },
   "homepage.features.publish.description": {
-    "message": "Vos modifications sont sauvegardées et soumises pour révision avant d'être publiées. Maintenez le contrôle qualité tout en rationalisant votre flux de travail de documentation.",
+    "message": "Your changes are saved and submitted for review before going live. Maintain quality control while streamlining your documentation workflow.",
     "description": "Description for the Publish feature"
   },
   "homepage.title": {
-    "message": "Documentation Docusaurus WYSIWYG",
+    "message": "Docusaurus WYSIWYG Documentation",
     "description": "The title for the homepage"
   }
 }

@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import Translate, {translate} from '@docusaurus/Translate';
 
 import styles from './index.module.css';
 
@@ -21,7 +22,11 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/">
-            Getting Started
+            <Translate
+              id="homepage.getStarted"
+              description="The label for the get started button on the homepage">
+              Getting Started
+            </Translate>
           </Link>
         </div>
       </div>
@@ -33,8 +38,16 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={translate({
+        id: 'homepage.title',
+        message: 'Docusaurus WYSIWYG Documentation',
+        description: 'The title for the homepage'
+      })}
+      description={translate({
+        id: 'homepage.description',
+        message: 'Description will go into a meta tag in <head />',
+        description: 'The description for the homepage'
+      })}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />

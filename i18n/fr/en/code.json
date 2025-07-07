@@ -321,41 +321,5 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
-  },
-  "homepage.getStarted": {
-    "message": "Commencer",
-    "description": "The label for the get started button on the homepage"
-  },
-  "homepage.description": {
-    "message": "Documentation WYSIWYG pour Docusaurus",
-    "description": "The description for the homepage"
-  },
-  "homepage.features.click.title": {
-    "message": "Cliquer",
-    "description": "Title for the Click feature"
-  },
-  "homepage.features.click.description": {
-    "message": "Cliquez sur le bouton Modifier cette page dans votre documentation pour commencer l'édition. Pas besoin de chercher des fichiers markdown ou de naviguer dans des structures de dossiers complexes.",
-    "description": "Description for the Click feature"
-  },
-  "homepage.features.edit.title": {
-    "message": "Éditer",
-    "description": "Title for the Edit feature"
-  },
-  "homepage.features.edit.description": {
-    "message": "Éditez votre contenu avec une interface WYSIWYG. Voyez vos modifications en temps réel pendant que vous tapez, formatez et stylisez votre documentation.",
-    "description": "Description for the Edit feature"
-  },
-  "homepage.features.publish.title": {
-    "message": "Publier",
-    "description": "Title for the Publish feature"
-  },
-  "homepage.features.publish.description": {
-    "message": "Vos modifications sont sauvegardées et soumises pour révision avant d'être publiées. Maintenez le contrôle qualité tout en rationalisant votre flux de travail de documentation.",
-    "description": "Description for the Publish feature"
-  },
-  "homepage.title": {
-    "message": "Documentation Docusaurus WYSIWYG",
-    "description": "The title for the homepage"
   }
 }
