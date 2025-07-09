@@ -16,3 +16,7 @@ Bienvenue dans l'**éditeur WYSIWYG pour Docusaurus** - la manière la plus simp
 🚀 Envie d'essayer ? Cliquez sur le bouton `Éditer cette page` ci-dessous et découvrez l'édition de documentation directement sur le site.
 
 🎨 Construit sur [**Lexical**](https://lexical.dev/), ce plugin améliore Docusaurus avec des fonctionnalités WYSIWYG. Éditez directement dans votre navigateur, prévisualisez en temps réel, et laissez le plugin gérer tous les détails techniques en arrière-plan.
+
+:::warning
+Ce plugin est en **beta**. Nous accueillons vos retours et contributions pour l'améliorer.
+:::

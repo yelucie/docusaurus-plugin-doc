@@ -16,3 +16,7 @@ Welcome to the **WYSIWYG Editor for Docusaurus** - the easiest way to edit Docus
 🚀 Ready to try? Click on `Edit this page` at the bottom of this page, and experience live documentation editing.
 
 🎨 Built on [**Lexical**](https://lexical.dev/), this plugin enhances Docusaurus with WYSIWYG features. Edit directly in your browser, preview in real-time, and let the plugin handle all the technical details behind the scenes.
+
+:::warning
+This plugin is in **beta**. We welcome your feedback and contributions to improve it.
+:::

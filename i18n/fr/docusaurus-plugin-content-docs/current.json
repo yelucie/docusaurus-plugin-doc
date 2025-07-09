@@ -15,12 +15,12 @@
     "message": "Core Features",
     "description": "The label for category Core Features in sidebar docsSidebar"
   },
-  "sidebar.docsSidebar.category.Architecture": {
-    "message": "Architecture",
-    "description": "The label for category Architecture in sidebar docsSidebar"
-  },
   "sidebar.docsSidebar.category.Advanced Topics": {
     "message": "Advanced Topics",
     "description": "The label for category Advanced Topics in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Core concepts": {
+    "message": "Core concepts",
+    "description": "The label for category Core concepts in sidebar docsSidebar"
   }
 }

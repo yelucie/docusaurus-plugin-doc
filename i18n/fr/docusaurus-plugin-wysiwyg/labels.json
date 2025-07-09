@@ -1,0 +1,30 @@
+{
+  "theme.wysiwyg.button.cancel": {
+    "message": "Annuler",
+    "description": "Cancel button label in dialogs"
+  },
+  "theme.wysiwyg.button.confirm": {
+    "message": "Confirmer",
+    "description": "Confirm button label in dialogs"
+  },
+  "theme.wysiwyg.admonition.type": {
+    "message": "Type d'encadré",
+    "description": "Label for admonition type select"
+  },
+  "theme.wysiwyg.admonition.title": {
+    "message": "Titre",
+    "description": "Label for admonition title input"
+  },
+  "theme.wysiwyg.admonition.customTitle": {
+    "message": "Personnaliser le titre",
+    "description": "Label for admonition title customization checkbox"
+  },
+  "theme.wysiwyg.admonition.content": {
+    "message": "Contenu",
+    "description": "Label for admonition content textarea"
+  },
+  "theme.wysiwyg.admonition.visualization": {
+    "message": "Aperçu",
+    "description": "Label for admonition preview section"
+  }
+}
