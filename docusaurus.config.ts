@@ -35,7 +35,7 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "fr", "zh-CN"],
+    locales: ["en"],
   },
 
   deploymentBranch: "gh-pages",
@@ -82,7 +82,12 @@ const config: Config = {
           position: "left",
           label: "API",
         },
-        { type: "localeDropdown", position: "right" },
+        {
+          type: "docSidebar",
+          sidebarId: "communitySidebar",
+          position: "left",
+          label: "Community",
+        },
         {
           href: "https://github.com/Audemars-Piguet/docusaurus-plugin-wysiwyg",
           label: "GitHub",

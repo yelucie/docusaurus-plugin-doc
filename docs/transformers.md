@@ -13,30 +13,48 @@ Lexical provides several types of transformers:
 | [**`ElementTransformer`**](https://lexical.dev/docs/api/modules/lexical_markdown#elementtransformer)                   | Single-line block elements               |
 | [**`MultilineElementTransformer`**](https://lexical.dev/docs/api/modules/lexical_markdown#multilineelementtransformer) | Multi-line block elements                |
 
-## Transformers Used in This Plugin
+## Transformers in this Plugin
+
+You can find all the used transformers in the [`MarkdownTransformers`](https://github.com/Audemars-Piguet/docusaurus-plugin-wysiwyg/blob/feature/55-link/src/theme/plugins/MarkdownTransformers/index.ts) plugin.
 
 ### Lexical's built-in transformers
 
 This plugin uses the following built-in transformers from Lexical:
 
 - Text format transformers:
-  - Bold: [`BOLD_STAR`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L514), [`BOLD_UNDERSCORE`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L520)
-  - Italic: [`ITALIC_STAR`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L533), [`ITALIC_UNDERSCORE`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L539)
-  - Bold + Italic: [`BOLD_ITALIC_STAR`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L501), [`BOLD_ITALIC_UNDERSCORE`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L507)
-  - Strikethrough: [`STRIKETHROUGH`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L527)
-  - Inline code: [`INLINE_CODE`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L489)
+  - Bold: [`BOLD_STAR`](https://lexical.dev/docs/api/modules/lexical_markdown#bold_star), [`BOLD_UNDERSCORE`](https://lexical.dev/docs/api/modules/lexical_markdown#bold_underscore)
+  - Italic: [`ITALIC_STAR`](https://lexical.dev/docs/api/modules/lexical_markdown#italic_star), [`ITALIC_UNDERSCORE`](https://lexical.dev/docs/api/modules/lexical_markdown#italic_underscore)
+  - Bold + Italic: [`BOLD_ITALIC_STAR`](https://lexical.dev/docs/api/modules/lexical_markdown#bold_italic_star), [`BOLD_ITALIC_UNDERSCORE`](https://lexical.dev/docs/api/modules/lexical_markdown#bold_italic_underscore)
+  - Inline code: [`INLINE_CODE`](https://lexical.dev/docs/api/modules/lexical_markdown#inline_code)
 - Text match transformer:
-  - Link: [`LINK`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L550)
+  - Link: [`LINK`](https://lexical.dev/docs/api/modules/lexical_markdown#link)
 - Element transformers:
-  - Headings: [`HEADING`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L321)
-  - Quotes: [`QUOTE`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L338)
-  - Lists: [`UNORDERED_LIST`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L459), [`ORDERED_LIST`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#479)
-  - Check lists: [`CHECK_LIST`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L469)
+  - Headings: [`HEADING`](https://lexical.dev/docs/api/modules/lexical_markdown#heading)
+  - Quotes: [`QUOTE`](https://lexical.dev/docs/api/modules/lexical_markdown#quote)
 - Multi-line transformer:
-  - Block code: [`CODE`](https://github.com/facebook/lexical/blob/main/packages/lexical-markdown/src/MarkdownTransformers.ts#L376)
+  - Block code: [`CODE`](https://lexical.dev/docs/api/modules/lexical_markdown#code)
 
-### Custom transformers for docusaurus syntax
+### Custom transformers for Docusaurus markdown syntax
 
-## Next Steps
+This plugin uses the following custom transformers :
 
-- Create your [first custom transformer](./transformer-tutorial.mdx)
+- Text format transformers:
+  - Strikethrough: `STRIKETHROUGH_DOUBLE`, `STRIKETHROUGH_SINGLE`
+- Text match transformer:
+  - Images: `IMAGE`
+  - Equations: `EQUATION`
+  - Links: `BOLD_LINK`, `ITALIC_LINK`, `BOLD_ITALIC_LINK`
+- Element transformers:
+  - Lists: `UNORDERED_LIST`, `ORDERED_LIST`
+  - Check lists: `CHECK_LIST`
+- Multi-line transformer:
+  - Admonitions: `ADMONITION`
+
+:::tip
+If you build a custom transformer, don't forget to register it in the [`MarkdownTransformers`](https://github.com/Audemars-Piguet/docusaurus-plugin-wysiwyg/blob/feature/55-link/src/theme/plugins/MarkdownTransformers/index.ts) plugin too!
+:::
+
+## Learn More
+
+- [Custom transformer tutorial](./transformer-tutorial.mdx)
+- [Lexical Transformer API Reference](https://lexical.dev/docs/packages/lexical-markdown)

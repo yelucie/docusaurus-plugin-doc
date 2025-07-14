@@ -1,30 +1,11 @@
 # Lexical Nodes
 
-Lexical nodes are the fundamental building blocks of content in the Lexical editor. They represent the structure and formatting of your document, similar to how HTML elements represent the structure of a web page.
+[**Lexical nodes**](https://lexical.dev/docs/concepts/nodes) are the fundamental **building blocks** of content in the WYSIWYG editor. They represent the **structure of the editor**, similar to how HTML elements represent the structure of a web page.
 
-## What is a Node?
-
-A node is a JavaScript object that describes a piece of content or structure in the editor. Nodes are organized in a tree, called the EditorState, which represents the entire document.
-
-Each node type corresponds to a specific kind of content or formatting, such as paragraphs, headings, lists, or text with bold/italic styles.
-
-## Common Node Types
-
-- **RootNode**: The top-level node that contains all other nodes.
-- **ParagraphNode**: Represents a paragraph of text.
-- **HeadingNode**: Represents headings (h1, h2, etc.).
-- **ListNode**: Represents ordered or unordered lists.
-- **ListItemNode**: Represents an item within a list.
-- **QuoteNode**: Represents a blockquote.
-- **TextNode**: Represents a piece of text, which can have formatting (bold, italic, etc.).
-- **CodeNode**: Represents a block of code.
-
-## Example Node Tree
+Nodes form a **tree structure** called the EditorState. For example, a simple editor with a heading, a list, and a quote might look like this:
 
 ```
 RootNode
-  ├── ParagraphNode
-  │     └── TextNode (with formatting like bold, italic)
   ├── HeadingNode
   │     └── TextNode
   ├── ListNode
@@ -36,33 +17,49 @@ RootNode
         └── TextNode
 ```
 
-## How Nodes and Transformers Work Together
+## Types of Nodes
 
-Transformers are responsible for converting between markdown and Lexical nodes:
+Lexical has three extendable node types :
 
-- **Import**: Transformers parse markdown (like `**bold**`) and create the corresponding Lexical nodes (like a `TextNode` with bold formatting).
-- **Export**: Transformers convert Lexical nodes back into markdown syntax.
+| Type                                                                              | Use Case                                        |
+| --------------------------------------------------------------------------------- | ----------------------------------------------- |
+| [**`ElementNode`**](https://lexical.dev/docs/api/classes/lexical.ElementNode)     | Parent for other nodes                          |
+| [**`TextNode`**](https://lexical.dev/docs/api/classes/lexical.TextNode)           | Leaf type of node that contains text            |
+| [**`DecoratorNode`**](https://lexical.dev/docs/api/classes/lexical.DecoratorNode) | Wrapper node to insert components in the editor |
 
-For example, when importing `**bold text**`, the transformer creates a `TextNode` with bold formatting. When exporting, it finds bold `TextNode`s and outputs `**bold text**` in markdown.
+## Nodes in this Plugin
 
-## Custom Nodes
+You can find all the used nodes in the [`EditorNodes`](https://github.com/Audemars-Piguet/docusaurus-plugin-wysiwyg/blob/feature/55-link/src/theme/nodes/EditorNodes.tsx) file.
 
-You can extend Lexical by creating your own custom nodes for specialized content (like admonitions, tabs, or custom widgets). Custom nodes can define their own structure, formatting, and how they are rendered in the editor and exported to markdown.
+### Lexical's built-in nodes
 
-```ts
-class AdmonitionNode extends ElementNode {
-  // Custom implementation...
-}
+This plugin uses the following built-in nodes from Lexical:
 
-// Register your custom node with the editor
-editor.registerNodeType(AdmonitionNode);
-```
+- Element nodes:
+  - Code: [`CodeNode`](https://lexical.dev/docs/api/classes/lexical_code.CodeNode)
+  - Heading: [`HeadingNode`](https://lexical.dev/docs/api/classes/lexical_rich_text.HeadingNode)
+  - Link: [`LinkNode`](https://lexical.dev/docs/api/classes/lexical_link.LinkNode)
+    - [`AutoLinkNode`](https://lexical.dev/docs/api/classes/lexical_link.AutoLinkNode)
+  - List: [`ListNode`](https://lexical.dev/docs/api/classes/lexical_list.ListNode)
+  - List item: [`ListItemNode`](https://lexical.dev/docs/api/classes/lexical_list.ListItemNode)
+  - Quote: [`QuoteNode`](https://lexical.dev/docs/api/classes/lexical_rich_text.QuoteNode)
+- Text nodes:
+  - Code: [`CodeHighlightNode`](https://lexical.dev/docs/api/classes/lexical_code.CodeHighlightNode)
 
-Custom nodes often require custom transformers to handle their import/export logic.
+### Custom nodes for Docusaurus markdown rendering
+
+This plugin uses the following custom nodes :
+
+- Decorator nodes:
+  - Admonition: `AdmonitionNode`
+  - Equation: `EquationNode`
+  - Image: `ImageNode`
+
+:::tip
+If you build a custom node, don't forget to register it in the [`EditorNodes`](https://github.com/Audemars-Piguet/docusaurus-plugin-wysiwyg/blob/feature/55-link/src/theme/nodes/EditorNodes.tsx) file too!
+:::
 
 ## Learn More
 
-- [Lexical Node API Reference](https://lexical.dev/docs/api/classes/lexical.Node)
-- [Lexical Architecture](https://lexical.dev/docs/concepts/architecture)
-- [Custom Nodes Guide](https://lexical.dev/docs/concepts/custom-nodes)
-
+- [Creating custom nodes](https://lexical.dev/docs/concepts/nodes#creating-custom-nodes)
+- [Lexical Nodes API Reference](https://lexical.dev/docs/concepts/nodes)
