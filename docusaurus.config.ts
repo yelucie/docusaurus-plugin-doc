@@ -7,7 +7,7 @@ import rehypeKatex from "rehype-katex";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "Docusaurus Plugin - WYSIWYG Editor",
+  title: "Docusaurus Editor Plugin",
   tagline: "Click, Edit, Publish",
   favicon: "img/favicon.ico",
 
@@ -17,15 +17,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: "https://yelucie.github.io",
+  url: "http://localhost:3000",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/docusaurus-plugin-doc/",
+  baseUrl: "",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "yelucie",
-  projectName: "docusaurus-plugin-doc", // Usually your repo name.
+  organizationName: "",
+  projectName: "", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -49,7 +49,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/yelucie/docusaurus-plugin-doc/tree/main/",
+            "https://github.com/Audemars-Piguet/docusaurus-plugin-wysiwyg-doc/tree/feature/1-mvp-doc/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
@@ -157,7 +157,14 @@ const config: Config = {
       },
     ],
     require.resolve("docusaurus-plugin-image-zoom"),
-    "docusaurus-plugin-wysiwyg",
+    [
+      "docusaurus-plugin-wysiwyg",
+      {
+        defaultBranch: "feature/1-mvp-doc",
+        githubClientId: "Iv23li6uoWrfJS5ppPbt",
+        branchPrefix: "lastdayDemo"
+      },
+    ],
   ],
 
   stylesheets: [

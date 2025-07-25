@@ -1,6 +1,8 @@
-# GitHub
+# TODO GitHub Tutorial
 
-This guide shows you how to use the Docusaurus WYSIWYG plugin with GitHub.
+Vérifier les liens aussi
+
+This guide shows you how to use the Docusaurus Editor Plugin with your own GitHub App.
 
 ## Prerequisites
 
@@ -12,7 +14,7 @@ This guide shows you how to use the Docusaurus WYSIWYG plugin with GitHub.
 ### Create the GitHub App
 
 1. Go to your GitHub account → Settings → Developer settings → GitHub Apps
-2. Click "New GitHub App"
+2. Click on "New GitHub App"
 3. Fill in the required information:
    - **App name**
    - **Homepage URL**
@@ -61,7 +63,7 @@ Add the GitHub App's client ID to your `docusaurus.config.js`:
 
 ```js title="docusaurus.config.js"
 module.exports = {
-  // ... other config
+  // ...other config
   plugins: [
     [
       "docusaurus-plugin-wysiwyg",

@@ -1,5 +1,3 @@
----
-description: How to use the WYSIWYG plugin in a Docusaurus site, and start editing in no time.
----
+# TODO Installation
 
-# Installation
+Présentation de comment installer rapidement le plugin.

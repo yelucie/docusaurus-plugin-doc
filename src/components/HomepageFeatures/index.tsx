@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
 import Heading from "@theme/Heading";
-import Translate from '@docusaurus/Translate';
+import Translate from "@docusaurus/Translate";
 import styles from "./styles.module.css";
 
 type FeatureItem = {
@@ -15,7 +15,8 @@ const FeatureList: FeatureItem[] = [
     title: (
       <Translate
         id="homepage.features.click.title"
-        description="Title for the Click feature">
+        description="Title for the Click feature"
+      >
         Click
       </Translate>
     ),
@@ -23,8 +24,14 @@ const FeatureList: FeatureItem[] = [
     description: (
       <Translate
         id="homepage.features.click.description"
-        description="Description for the Click feature">
-        Click on the Edit this page button in your documentation to start editing. No need to hunt for markdown files or navigate complex folder structures.
+        description="Description for the Click feature"
+        values={{
+          code: <code>Edit this page</code>,
+        }}
+      >
+        {
+          "Click on the {code} button in your documentation to start editing. No need to hunt for markdown files or navigate complex folder structures."
+        }
       </Translate>
     ),
   },
@@ -32,7 +39,8 @@ const FeatureList: FeatureItem[] = [
     title: (
       <Translate
         id="homepage.features.edit.title"
-        description="Title for the Edit feature">
+        description="Title for the Edit feature"
+      >
         Edit
       </Translate>
     ),
@@ -40,8 +48,10 @@ const FeatureList: FeatureItem[] = [
     description: (
       <Translate
         id="homepage.features.edit.description"
-        description="Description for the Edit feature">
-        Edit your content with a WYSIWYG interface. See your changes in real-time as you type, format, and style your documentation.
+        description="Description for the Edit feature"
+      >
+        Edit your content with a rich text interface. See your changes in
+        real-time as you type, format, and style your documentation.
       </Translate>
     ),
   },
@@ -49,7 +59,8 @@ const FeatureList: FeatureItem[] = [
     title: (
       <Translate
         id="homepage.features.publish.title"
-        description="Title for the Publish feature">
+        description="Title for the Publish feature"
+      >
         Publish
       </Translate>
     ),
@@ -57,8 +68,10 @@ const FeatureList: FeatureItem[] = [
     description: (
       <Translate
         id="homepage.features.publish.description"
-        description="Description for the Publish feature">
-        Your changes are saved and submitted for review before going live. Maintain quality control while streamlining your documentation workflow.
+        description="Description for the Publish feature"
+      >
+        Your changes are saved and submitted for review before going live.
+        Maintain quality control while streamlining your documentation workflow.
       </Translate>
     ),
   },

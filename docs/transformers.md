@@ -1,4 +1,4 @@
-# Lexical transformers
+# Lexical Transformers
 
 [**Lexical transformers**](https://lexical.dev/docs/packages/lexical-markdown#transformers) are the **bridge** between your WYSIWYG editor and markdown. They define how content is converted when **importing markdown** into the editor, and **exporting editor components** back to markdown.
 
